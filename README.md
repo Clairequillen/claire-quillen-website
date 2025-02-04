@@ -1,36 +1,6 @@
-# Astro Multiverse
+# Claire Quillen's MUA Portfolio Website 
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
+## Editing Instructions 
 
-Say hello to **Multiverse**, a slick, one-page gallery design with a fully functional lightbox.
-
-## Getting Started
-
-To get started with Astro Multiverse, follow these steps:
-
-```bash
-git clone https://github.com/AREA44/astro-multiverse
-cd astro-multiverse
-pnpm install
-pnpm dev
-```
-
-## How to Customize
-
-To customize Astro Multiverse, you can change your images in the `src/assets` directory.
-
-## License
-
-**Multivese** by [HTML5 UP](https://html5up.net). Free for personal and commercial use under the [CCA 3.0](https://html5up.net/license) license.
-
-## Credits
-
-Astro Multiverse uses the following resources:
-
-- Demo images by [Unsplash](https://unsplash.com)
-- [jQuery](https://jquery.com)
-- [Poptrox](https://github.com/ajlkn/jquery.poptrox)
-
-## Contributions
-
-Contributions to Astro Multiverse are welcome! If you have any suggestions or improvements, feel free to create a pull request.
+### Adding photos: 
+There is a folder that contains images for each of the three galleries, located in src/assets/gallery/beauty, src/assets/gallery/runway, and src/assets/gallery/sfx. To add photos, you can upload them into one of those folders and it should momentarily pop up in the corresponding gallery. There are two methods to upload: use the web user interface (this very website, GitHub; should be mostly self explanatory), and by *git pulling* the repository to your laptop, and then adding images to the appropriate folders, and then *git pushing*. The latter approach is a bit convoluted, so I'd start with the web interface. Nonethless, here's a [Git quickstart guide](https://rogerdudler.github.io/git-guide/). 
