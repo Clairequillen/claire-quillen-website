@@ -1,0 +1,29 @@
+---
+const { title, description } = Astro.props
+---
+
+<div id="bottom-matter">
+  <div class="spacer">
+  </div>
+
+  <section class="info">
+    <h2> MUA based in Brooklyn, NY </h2>
+    <p>email: <a href="mailto:clairequillenmua@gmail.com">clairequillenmua@gmail.com</a></p>
+  </section>
+</div>
+
+<style>
+  #bottom-matter {
+    color: var(--text-light);
+    transition: color 0.3s ease;
+  }
+
+  :global(html.dark) #bottom-matter {
+    color: var(--text-dark);
+  }
+
+  /* Make sure all child elements inherit color */
+  h1, h2, h3, p, span, a {
+    color: inherit;
+  }
+</style>

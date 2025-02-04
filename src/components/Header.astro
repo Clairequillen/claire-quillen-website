@@ -4,13 +4,71 @@ const { title } = Astro.props
 
 <div id="wrapper">
   <header id="header">
-    <h1>{title}</h1>
+    <div id="name">
+      <h1>{title}</h1>
+    </div>
     <nav>
       <ul>
-        <li>
-          <a href="#footer">About</a>
-        </li>
+        <li><a href="#" data-gallery="runway" class="gallery-link">Runway</a></li>
+        <li><a href="#" data-gallery="beauty" class="gallery-link">Beauty</a></li>
+        <li><a href="#" data-gallery="sfx" class="gallery-link">SFX</a></li>
       </ul>
     </nav>
   </header>
 </div>
+
+<style>
+  #header {
+    background-color: var(--header-bg-light);
+    color: var(--text-light);
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    align-items: center; /* Vertically center everything */
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  #header h1 {
+    color: var(--text-light);
+    transition: color 0.3s ease;
+  }
+
+  #header #name {
+    height: 100%;
+  }
+
+  #header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Ensure nav items are vertically centered */
+    gap: 2rem;
+  }
+
+  #header nav ul li {
+    display: flex;
+    align-items: center; /* Vertically center each nav item */
+  }
+
+  #header .gallery-link {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ensure full height of parent */
+  }
+
+  /* Dark mode styles */
+  :global(html.dark) #header {
+    background-color: var(--header-bg-dark);
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+  }
+
+  :global(html.dark) #header h1,
+  :global(html.dark) #header .gallery-link {
+    color: var(--text-dark);
+  }
+</style>
