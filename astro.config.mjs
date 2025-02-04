@@ -4,7 +4,7 @@ import { FontaineTransform } from 'fontaine'
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.CI ? site : 'http://localhost:4321',
+  site: 'https://clairequillen.github.io',
   vite: {
     plugins: [
       FontaineTransform.vite({
