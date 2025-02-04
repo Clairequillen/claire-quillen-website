@@ -2214,3 +2214,16 @@ body.is-preload #main .thumb {
 #bottom-matter .info { 
   padding: 2em;
 }
+
+
+/* Hiding header for mobile */
+@media screen and (max-width: 640px) {
+  #header nav {
+    display: none !important;
+  }
+
+  #header h1 {
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
