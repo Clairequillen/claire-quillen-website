@@ -89,243 +89,11 @@ let description =
     <ExternalScripts />
 
     <style>
-      :root {
-        --background-light: #ffffff;
-        --text-light: #000000;
-        --background-dark: #1a1a1a;
-        --text-dark: #ffffff;
-      }
 
-      body {
-        background-color: var(--background-light);
-        color: var(--text-light);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      html.dark body {
-        background-color: var(--background-dark);
-        color: var(--text-dark);
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .gallery-nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-        margin: 1rem 0;
-      }
-
-      .gallery-link {
-        color: inherit;
-        text-decoration: none;
-        font-size: 1.2rem;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-        transition: all 0.2s ease;
-      }
-
-      .gallery-link:hover {
-        background: rgba(128, 128, 128, 0.1);
-      }
-
-      /* Theme Toggle */
-      .theme-toggle {
-        position: fixed;
-        top: 1em;
-        right: 1em;
-        width: max(5vh, 48px);  /* Ensures consistent size */
-        height: max(5vh, 48px); /* Keeps it a perfect circle */
-        border-radius: 50%; /* Forces a circular shape */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: inherit;
-        z-index: 100;
-      }
-
-      .theme-toggle svg {
-        width: max(3vh, 28px);
-        height: max(3vh, 28px);
-        stroke: currentColor;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        position: absolute;
-      }
-
-      /* Show/Hide Icons Based on Theme */
-      .theme-toggle .moon {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-
-      html.dark .theme-toggle .moon {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      html.dark .theme-toggle .sun {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-
-      /* Image Viewer */
-      .image-viewer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 1000;
-      }
-
-      .image-viewer.active {
-        display: flex;
-        opacity: 1;
-      }
-
-      .viewer-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 90vw;
-        max-height: 90vh;
-      }
-
-      .viewer-content img {
-        max-width: 100%;
-        max-height: 90vh;
-        object-fit: contain;
-      }
-
-      .viewer-close,
-      .viewer-prev,
-      .viewer-next {
-        position: absolute;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        padding: 1rem;
-        font-size: 2rem;
-        z-index: 1001;
-        transition: opacity 0.2s ease;
-      }
-
-      .viewer-close {
-        top: 1rem;
-        right: 1rem;
-      }
-
-      .viewer-prev {
-        left: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .viewer-next {
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .viewer-close:hover,
-      .viewer-prev:hover,
-      .viewer-next:hover {
-        opacity: 0.7;
-      }
-
-      @media (max-width: 1200px) {
-        .gallery-container {
-          grid-template-columns: repeat(4, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .gallery-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      /* Add these to your style section */
-      :root {
-        --background-light: #ffffff;
-        --text-light: #000000;
-        --background-dark: #1a1a1a;
-        --text-dark: #ffffff;
-        --border-light: rgba(0, 0, 0, 0.1);
-        --border-dark: rgba(255, 255, 255, 0.1);
-        --header-text-light: #333333;  /* For the header text */
-        --header-text-dark: #ffffff;   /* For the header text in dark mode */
-        --header-bg-light: #ffffff;  /* For the header background */
-        --header-bg-dark: #333333;   /* For the header background in dark mode */
-      }
-
-      /* Header styles */
-      /* Header fixes */
-
-      /* Bottom matter fixes */
-      #bottom-matter {
-        color: var(--text-light);
-        transition: color 0.3s ease;
-      }
-
-      html.dark #bottom-matter {
-        color: var(--text-dark);
-      }
-
-      /* Make sure all text elements in bottom matter are visible */
-      #bottom-matter h1,
-      #bottom-matter h2,
-      #bottom-matter h3,
-      #bottom-matter p,
-      #bottom-matter span,
-      #bottom-matter a {
-        color: inherit;
-      }
-
-      /* Make sure header content is visible */
-      header h1,
-      header p,
-      header span {
-        color: inherit;
-      }
-
-      /* Gallery navigation */
-      .gallery-link {
-        color: var(--text-light);
-      }
-
-      html.dark .gallery-link {
-        color: var(--text-dark);
-      }
-
-      .gallery-link:hover {
-        background: rgba(128, 128, 128, 0.1);  /* Neutral hover for both modes */
-      }
     </style>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // Theme toggle
-        //document.getElementById('theme-toggle')?.addEventListener('click', () => {
-        //  document.documentElement.classList.toggle('dark');
-        //  localStorage.setItem(
-        //    'theme',
-        //    document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-        //  );
-        //});
-
         // Gallery functionality
         let currentIndex = 0;
         let currentGalleryItems = [];
@@ -443,6 +211,34 @@ let description =
         // Initialize with beauty gallery
         document.getElementById('beauty-gallery')?.classList.remove('hidden');
         updateCurrentGalleryItems();
+
+        // Add this inside your DOMContentLoaded event listener
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        viewer?.addEventListener('touchstart', e => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+        viewer?.addEventListener('touchend', e => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          
+          if (Math.abs(diff) > 50) { // minimum swipe distance
+            if (diff > 0) {
+              showNext();
+            } else {
+              showPrev();
+            }
+          }
+        });
+
+        viewer?.addEventListener('click', (e) => {
+          if (e.target === viewer && !e.touches) { // Only close on desktop clicks
+            closeViewer();
+          }
+        });
+
       });
     </script>
   </body>
